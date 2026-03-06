@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Drop | Yapay Zeka Yerçekimi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+        <div class="glass-panel">
+            <div class="logo-container">
+                <h1>AI Drop</h1>
+                <p class="subtitle">Yapay Zeka Okuryazarlığına Hazır mısın?</p>
+            </div>
+            
+            <div class="instructions">
+                <h3>Nasıl Oynanır?</h3>
+                <p>1. Ekrandan düşen <strong>Görev Blokları</strong>ndaki problemi oku.</p>
+                <p>2. Bu görevi en iyi yapacak olan <strong>Yapay Zeka Kutusunu</strong> bul.</p>
+                <p>3. Düşen blok yere veya yanlış kutuya çarpmadan doğru kutuya <strong>Tıkla</strong>!</p>
+            </div>
+            
+            <button id="start-btn" class="neon-btn">Maceraya Başla</button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <!-- HUD -->
+        <div class="hud">
+            <div class="hud-item score-display">Skor: <span id="score">0</span> <span id="multiplier" class="hidden">x1</span></div>
+            <div class="hud-item level-display">Seviye: <span id="level">1</span></div>
+            <div class="hud-item lives-display">Can: <span id="lives">❤️❤️❤️</span></div>
+        </div>
+
+        <!-- Game Area (Where blocks fall) -->
+        <div id="game-area"></div>
+
+        <!-- AI Boxes Area -->
+        <div id="boxes-container-wrapper">
+            <div id="boxes-container">
+                <!-- AI Boxes will be injected here via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Pause / Learn Modal -->
+    <div id="learn-modal" class="modal">
+        <div class="modal-content learn-card">
+            <h2 id="learn-title" class="learn-title">Oops! Yanlış Seçim.</h2>
+            <p id="learn-message" class="learn-message">Bilgi metni...</p>
+            <div class="tools-comparison">
+                <div class="tool-info expected">
+                    <h4 id="expected-tool">Doğru Araç</h4>
+                    <p id="expected-desc">Açıklama</p>
+                </div>
+                <div class="tool-info selected">
+                    <h4 id="selected-tool">Senin Seçimin</h4>
+                    <p id="selected-desc">Açıklama</p>
+                </div>
+            </div>
+            <button id="resume-btn" class="neon-btn green">Anladım, Oyuna Dön</button>
+        </div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content game-over-card">
+            <h2>Oyun Bitti!</h2>
+            <p>Final Skorun: <span id="final-score" class="highlight">0</span></p>
+            <p>Ulaştığın Seviye: <span id="final-level" class="highlight">1</span></p>
+            <p class="motivational-text">Yapay zeka ekosistemini öğrenmeye devam et!</p>
+            <button id="restart-btn" class="neon-btn">Tekrar Oyna</button>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
